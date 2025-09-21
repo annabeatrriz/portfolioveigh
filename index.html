@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veigh — Portfolio</title>
+
+  <!-- Icons (opcional) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --base-font-size: 16px;
+      --bg: #000000;            /* preto */
+      --card-bg: #0f0f11;
+      --text: #e8e8e8;
+      --muted: #a8a8a8;
+      --accent-red: #ff2b2b;    /* vermelho */
+      --accent-blue: #2f8bff;   /* azul */
+      --radius: 12px;
+    }
+
+    /* High contrast theme (toggle) */
+    body.high-contrast {
+      --bg: #ffffff;
+      --card-bg: #f5f5f5;
+      --text: #000000;
+      --muted: #333333;
+      --accent-red: #ff0000;
+      --accent-blue: #0047b3;
+    }
+
+    html { font-size: var(--base-font-size); box-sizing: border-box; }
+    *,*::before,*::after{box-sizing:inherit}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:20px;
+    }
+
+    .wrap{ max-width:980px; margin:18px auto; }
+
+    header.site-head{
+      display:flex; gap:18px; align-items:center;
+      justify-content:space-between;
+    }
+    .brand{
+      display:flex; gap:16px; align-items:center;
+    }
+    .logo{
+      width:96px; height:96px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-red));
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:28px; color:white;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+    h1{ margin:0; font-size:1.45rem; }
+    .meta{ color:var(--muted); font-size:0.95rem; margin-top:6px; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:18px;
+      margin-top:20px;
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    h2{ margin-top:0; color:var(--accent-blue); font-size:1.05rem; display:flex; align-items:center; gap:10px;}
+    p, li { color: var(--text); }
+    ul{ padding-left:18px; }
+
+    .btn{
+      display:inline-block; padding:8px 12px; border-radius:10px; text-decoration:none;
+      background: linear-gradient(90deg,var(--accent-red),var(--accent-blue));
+      color:white; font-weight:700; box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+    }
+
+    /* Accessibility controls (top-right) */
+    .accessibility-controls{
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 9999;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      background: rgba(0,0,0,0.45);
+      padding:8px;
+      border-radius:10px;
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    .accessibility-controls button{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.08);
+      color:var(--text);
+      padding:8px 10px;
+      border-radius:8px;
+      cursor:pointer;
+      font-weight:700;
+      min-width:46px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+    }
+    .accessibility-controls button:focus{ outline:3px solid rgba(255,255,255,0.08); }
+
+    /* smaller layout */
+    @media (max-width:900px){
+      .grid{ grid-template-columns: 1fr; }
+      .accessibility-controls{ right:10px; top:10px; }
+      .brand{ flex-direction:column; align-items:flex-start; gap:8px; }
+    }
+
+    footer{ text-align:center; color:var(--muted); margin-top:18px; font-size:0.9rem; }
+
+    /* songs list styling */
+    .songs-list li{ margin-bottom:6px; }
+    .sources{ font-size:0.85rem; color:var(--muted); margin-top:10px; }
+  </style>
+</head>
+<body>
+  <!-- Accessibility controls -->
+  <div class="accessibility-controls" aria-label="Controles de acessibilidade">
+    <button id="inc" aria-label="Aumentar fonte (A+)">A+</button>
+    <button id="dec" aria-label="Diminuir fonte (A-)">A−</button>
+    <button id="contrast" aria-label="Alternar alto contraste" title="Alto contraste">◐</button>
+  </div>
+
+  <div class="wrap">
+    <header class="site-head">
+      <div class="brand">
+        <div class="logo">V</div>
+        <div>
+          <h1>VEIGH</h1>
+          <div class="meta">Rapper e cantor — Perfil informativo</div>
+        </div>
+      </div>
+
+      <div>
+        <a class="btn" href="#" onclick="window.print();return false">Imprimir / Salvar</a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card">
+          <h2>Sobre / Biografia</h2>
+          <p>Aqui você pode colocar uma biografia curta e verificada sobre o Veigh — exemplo: origem, estilos musicais, discos lançados e curiosidades. Se quiser, eu já posso preencher com informações verificadas (baseados nas fontes).</p>
+          <p class="sources">Fontes recomendadas: páginas oficiais do artista, YouTube oficial, Spotify e Wikipedia.</p>
+        </section>
+
+        <section class="card">
+          <h2>Top músicas (mais ouvidas)</h2>
+          <p>Lista com as músicas mais populares do Veigh em várias plataformas:</p>
+          <ul class="songs-list">
+            <li>Artista Genérico</li>
+            <li>Amor Fictício</li>
+            <li>Eu Venci o Mundo</li>
+            <li>Ballena (feat. Pedro Lotto & Fepache)</li>
+            <li>Novo Balanço</li>
+            <li>Figura Pública</li>
+            <li>Engana Dizendo Que Ama</li>
+            <li>Vida Chique</li>
+            <li>Indiretas com a voz</li>
+            <li>Sangue do Cordeiro</li>
+          </ul>
+          <p class="sources">(Lista compilada a partir de páginas oficiais e plataformas de música.)</p>
+        </section>
+
+        <section class="card">
+          <h2>Discografia / Destaques</h2>
+          <ul>
+            <li>Álbum: <strong>Eu Venci o Mundo</strong> (destaque recente)</li>
+            <li>Singles e colaborações: vários lançamentos e parcerias — atualize conforme fontes oficiais.</li>
+          </ul>
+        </section>
+      </main>
+
+      <aside>
+        <div class="card">
+          <h2>Contato & Fontes</h2>
+          <p class="sources">Links oficiais (adicionar os reais do artista):</p>
+          <ul>
+            <li><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8Kf4sbOVvlgXAaBm8IaYKg">Canal YouTube oficial</a></li>
+            <li><a target="_blank" rel="noopener" href="https://open.spotify.com/artist/4YqwRbMLqGHRHLS1w2ZKse">Spotify (artista)</a></li>
+            <li><a target="_blank" rel="noopener" href="https://music.apple.com/artist/veigh/1439722085">Apple Music</a></li>
+            <li><a target="_blank" rel="noopener" href="https://pt.wikipedia.org/wiki/Veigh">Wikipedia (pt)</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Desenvolvido com ❤ — personalize as seções e adicione imagens na pasta <code>/assets</code> do repositório.
+    </footer>
+  </div>
+
+  <script>
+    // acessibilidade: controlar font-size via CSS variable
+    const root = document.documentElement;
+    const KEY_FONT = 'veigh_font_size';
+    const KEY_CONTRAST = 'veigh_high_contrast';
+
+    function getFontSize(){
+      const stored = localStorage.getItem(KEY_FONT);
+      if(stored) return Number(stored);
+      // inicializar com valor baseado no :root
+      const val = parseFloat(getComputedStyle(root).getPropertyValue('--base-font-size')) || 16;
+      return val;
+    }
+    function setFontSize(px){
+      root.style.setProperty('--base-font-size', px + 'px');
+      localStorage.setItem(KEY_FONT, px);
+    }
+    function changeFont(delta){
+      const size = Math.min(24, Math.max(12, getFontSize() + delta));
+      setFontSize(size);
+    }
+
+    // contrast toggle
+    function setContrast(on){
+      if(on) document.body.classList.add('high-contrast');
+      else document.body.classList.remove('high-contrast');
+      localStorage.setItem(KEY_CONTRAST, on ? '1' : '0');
+    }
+    function toggleContrast(){
+      const on = document.body.classList.toggle('high-contrast');
+      localStorage.setItem(KEY_CONTRAST, on ? '1' : '0');
+    }
+
+    // hook buttons
+    document.getElementById('inc').addEventListener('click', ()=> changeFont(1));
+    document.getElementById('dec').addEventListener('click', ()=> changeFont(-1));
+    document.getElementById('contrast').addEventListener('click', ()=> toggleContrast());
+
+    // keyboard accessibility
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === '+' || (e.ctrlKey && e.key === '=')) { e.preventDefault(); changeFont(1); }
+      if(e.key === '-' || (e.ctrlKey && e.key === '_')) { e.preventDefault(); changeFont(-1); }
+      if(e.key.toLowerCase() === 'c' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); toggleContrast(); }
+    });
+
+    // restore preferences
+    (function init(){
+      const fs = localStorage.getItem(KEY_FONT);
+      if(fs) setFontSize(Number(fs));
+      const hc = localStorage.getItem(KEY_CONTRAST);
+      if(hc === '1') document.body.classList.add('high-contrast');
+    })();
+  </script>
+</body>
+</html>
