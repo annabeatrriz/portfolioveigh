@@ -37,3 +37,37 @@ Este projeto tem como objetivo:
 
 ## 📂 **Estrutura do Projeto**
 
+---
+
+## 🎧 **Top Músicas de Veigh**
+
+1. Artista Genérico  
+2. Amor Fictício  
+3. Eu Venci o Mundo  
+4. Ballena (feat. Pedro Lotto & Fepache)  
+5. Novo Balanço  
+6. Figura Pública  
+7. Engana Dizendo Que Ama  
+8. Vida Chique  
+9. Indiretas com a Voz  
+10. Sangue do Cordeiro  
+
+*(Lista compilada de fontes oficiais e plataformas de música)*
+
+---
+
+## 🔗 **Links Oficiais**
+
+- [YouTube](https://www.youtube.com/channel/UC8Kf4sbOVvlgXAaBm8IaYKg)  
+- [Spotify](https://open.spotify.com/artist/4YqwRbMLqGHRHLS1w2ZKse)  
+- [Apple Music](https://music.apple.com/artist/veigh/1439722085)  
+- [Wikipedia](https://pt.wikipedia.org/wiki/Veigh)
+
+---
+
+## 🚀 **Como Usar**
+
+1. Clone o repositório:  
+   ```bash
+   git clone https://github.com/seu-usuario/veigh.git
+
