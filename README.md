@@ -35,10 +35,6 @@ Este projeto tem como objetivo:
 
 ---
 
-## 📂 **Estrutura do Projeto**
-
----
-
 ## 🎧 **Top Músicas de Veigh**
 
 1. Artista Genérico  
